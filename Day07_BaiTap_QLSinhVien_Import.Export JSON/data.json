@@ -1,7 +1,7 @@
 [
   {
     "name": "T1801A",
-    "address": "HN",
+    "address": "Detech Building",
     "studentList": [
       {
         "fullname": "Tran Van A",
@@ -27,8 +27,8 @@
     ]
   },
   {
-    "name": "BT101",
-    "address": "HCM",
+    "name": "T1804M",
+    "address": "Detech Building",
     "studentList": [
       {
         "fullname": "Tran Van A",
