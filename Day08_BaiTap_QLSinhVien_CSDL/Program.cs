@@ -107,10 +107,20 @@ namespace Day08_BaiTap_QLSinhVien_CSDL
         }
         #endregion
 
-
         #region 4. XOÁ
         private static void Delete()
         {
+            #region Show Lại DS cho Dễ nhìn
+            List<Students> studentsList = StudentDAO.GetStudents();
+
+            Console.WriteLine("===== DS Sinh Viên =========================");
+            foreach (Students std in studentsList)
+            {
+
+                std.HienThi();
+            }
+            #endregion
+
             Console.WriteLine("===== Delete Sinh Viên ====================");
             Console.WriteLine("=> Nhập ID Sinh Viên Muốn Xoá: ");
             int id = Utility.ReadInt();
