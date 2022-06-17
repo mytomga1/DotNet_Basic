@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using Day07_BaiTap_QLSinhVien_Import.Export_JSON.Models;
 
 namespace Day07_BaiTap_QLSinhVien_Import.Export_JSON
@@ -32,16 +33,15 @@ namespace Day07_BaiTap_QLSinhVien_Import.Export_JSON
                 switch (choose)
                 {
                     case 1:
-                        ImportJSONFILE(classRooms);
+                        classRooms = ImportJSONFILE();
                         break;
                     case 2:
                         HienThi(classRooms);
                         break;
                     case 3:
-
+                        SaveFile(classRooms);
                         break;
                     case 4:
-                        Console.WriteLine("Thoat chuong trinh");
                         break;
                     default:
                         Console.WriteLine("Nhap sai!!!");
@@ -52,20 +52,64 @@ namespace Day07_BaiTap_QLSinhVien_Import.Export_JSON
             Console.ReadLine();
         }
 
-        static void ImportJSONFILE(List<ClassRoom> classRooms)
-        {
-            // B1: Đọc Nội Dung file json
-            var content = System.IO.File.ReadAllText(@"data.json");
-            Console.WriteLine();
-        }
 
-        static void HienThi(List<ClassRoom> classRooms)
-        {
-            foreach (ClassRoom room in classRooms) { 
-            
-                room.HienThi();
+        #region 1. Nhập thông tin sinh vien từ file Json
+            static List<ClassRoom> ImportJSONFILE()
+            {
+                // B1: Đọc Nội Dung file json
+                var content = System.IO.File.ReadAllText(@"C:\Users\Admin\Desktop\C#\Basic\Basic\Day07_BaiTap_QLSinhVien_Import.Export JSON\data.json");
+                //Console.WriteLine(content);
+
+                // B2. Sử dụng Newtonsoft để Convert dữ liệu từ JSON thành array class Object trong C#
+                List<ClassRoom> classRooms = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ClassRoom>>(content);
+
+                Console.WriteLine("Đã Import Dữ Liệu Thành Công từ File JSON");
+                //HienThi(classRooms);
+                return classRooms;
             }
-        }
+        #endregion
+
+        #region 2. Hiển Thị Thông tin SV
+        static void HienThi(List<ClassRoom> classRooms)
+            {
+                foreach (ClassRoom room in classRooms)
+                {
+
+                    Console.WriteLine("====================================================================================================");
+                    room.HienThi();
+                    Console.WriteLine("====================================================================================================");
+                }
+            }
+        #endregion
+
+        #region 3. Lưu Thông Tin Lớp Học vào file Json
+            static void SaveFile(List<ClassRoom> classRooms) {
+
+                foreach (ClassRoom room in classRooms) {
+                //Sử dụng foreach để Lưu từng object classroom vào trong file Name.obj 
+                    using (Stream stream = File.Open(room.Name+".obj", FileMode.Create))
+                    {
+                        var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                        binaryFormatter.Serialize(stream, room);
+                    }
+
+                    Console.WriteLine("Name{0}",room.Name + ".obj|Save Complete");
+                }
+            }
+
+            // Đây là 1 hàm có chức năng đọc(dịch) từ dạng file về object
+            /*
+             public static T ReadFromBinaryFile<T>(string filePath)
+            {
+                using (Stream stream = File.Open(filePath, FileMode.Open))
+                {
+                    var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                    return (T)binaryFormatter.Deserialize(stream);
+                }
+            }
+            */
+        #endregion
+
 
         static void Menu()
         {

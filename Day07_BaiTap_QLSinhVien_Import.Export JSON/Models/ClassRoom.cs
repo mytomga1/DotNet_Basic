@@ -13,22 +13,25 @@ namespace Day07_BaiTap_QLSinhVien_Import.Export_JSON.Models
            _ Tạo hàm getter & setter
            _ Tạo hàm nhập thông tin và hiển thị thông tin sinh vien
     */
+
+    [Serializable] // sử dụng thằng [ Serializablet : thường dùng để lưu file dc hổ trợ trong C#]
+                   // là loại kỹ thuật chuyển đổi object về dạng trung gian (text, mảng byte) phục vụ lưu trữ (trong file) hoặc truyền qua mạng (lập trình socket).
     public class ClassRoom
     {
-        public string ClassRoomName { get; set; }
+        public string Name { get; set; }
         public string Address { get; set; }
-        public List<Student> studentList { get; set; }
+        public List<Student> StudentList { get; set; }
 
         public ClassRoom() { 
         
-            studentList = new List<Student>();
+            StudentList = new List<Student>();
         }
 
         public void Nhap()
         {
 
             Console.Write("Nhập Tên Lớp : ");
-            ClassRoomName = Console.ReadLine();
+            Name = Console.ReadLine();
 
             Console.Write("Nhập Địa Chỉ : ");
             Address = Console.ReadLine();
@@ -41,15 +44,15 @@ namespace Day07_BaiTap_QLSinhVien_Import.Export_JSON.Models
                 Student sv = new Student();
                 sv.Nhap(); // phần này dùng để gọi nhập dữ liệu sv
 
-                studentList.Add(sv);// sau đó lưu sv vào mãng studentList
+                StudentList.Add(sv);// sau đó lưu sv vào mãng studentList
             }
         }
 
         public void HienThi()
         {
             Console.WriteLine("[ Tên Lớp :{0}| Địa Chỉ:{1}]",
-                                ClassRoomName, Address);
-            foreach (Student sv in studentList) {
+                                Name, Address);
+            foreach (Student sv in StudentList) {
 
                 sv.HienThi();
             }
