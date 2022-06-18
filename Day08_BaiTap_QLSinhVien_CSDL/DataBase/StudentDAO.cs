@@ -4,6 +4,10 @@ using System;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
+/*
+ * Mô Hình DAO là mô hình khi chúng ta có design 1 database và chúng ta có các bản, thì mỗi bản này sẽ dc tạo ra mapping về 1 model đối tượng trong project VD như đối tượng student
+ * và tương tự nó sẻ tạo ra 1 file khác vd như studentDAO và nó sẽ chứa tất cả hàm thêm sửa xoá, lấy ds có liên quan đến database. và đó là phong cách code DAO
+*/
 namespace Day08_BaiTap_QLSinhVien_CSDL.DataBase
 {
     public class StudentDAO
