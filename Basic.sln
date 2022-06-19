@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day08_BaiTap_QLSinhVien_CSD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day09_BaiTap_QLSach_CheckDuplicate", "Day09_BaiTap_QLSach\Day09_BaiTap_QLSach_CheckDuplicate.csproj", "{274F4CCF-B6BE-4A0B-8740-922531217373}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day09-2_BaiTaiQLSach_V2_File", "Day09-2_BaiTaiQLSach_V2\Day09-2_BaiTaiQLSach_V2_File.csproj", "{BA410BC4-0BCF-48BC-A2F7-ACDB4FD16475}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{274F4CCF-B6BE-4A0B-8740-922531217373}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{274F4CCF-B6BE-4A0B-8740-922531217373}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{274F4CCF-B6BE-4A0B-8740-922531217373}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA410BC4-0BCF-48BC-A2F7-ACDB4FD16475}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA410BC4-0BCF-48BC-A2F7-ACDB4FD16475}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA410BC4-0BCF-48BC-A2F7-ACDB4FD16475}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA410BC4-0BCF-48BC-A2F7-ACDB4FD16475}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
