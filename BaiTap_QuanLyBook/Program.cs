@@ -30,7 +30,7 @@ using System.Collections.Generic; // Để Quản Lý dc n Book ta dùng thằng
 namespace BaiTap_QuanLyBook
 {
     // Cài đặt lớp Test
-    class Test
+    public class Test
     {
         static void Main(string[] args)
         {
@@ -44,7 +44,7 @@ namespace BaiTap_QuanLyBook
             do
             {
                 ShowMenu();
-                choose = Int32.Parse(Console.ReadLine());
+                choose = checknumber.ReadInt();
 
                 switch (choose)
                 {
@@ -79,11 +79,27 @@ namespace BaiTap_QuanLyBook
             } while (choose !=6);
         }
 
+        private static void TimKiemByName(List<AptechBook> aptechbook)
+        {
+            //Console.WriteLine("Nhap Ten sach can Tim: ");
+            //string timtheoten = Console.ReadLine();
+
+            //for (int i = 0; i < aptechBooks.Count; i++)
+            //{
+
+            //    if (aptechBooks[i].Name.Equals(timtheoten))
+            //    {
+
+            //        aptechBooks[i].HienThi();
+            //    }
+            //}
+        }
+
         static void Input(List<AptechBook> aptechBooks) {
             Console.WriteLine("Nhap so Sach Can Them: ");
-            int n = Int32.Parse(Console.ReadLine());
+            int N = checknumber.ReadInt();
 
-            for (int i = 0; i < n; i++) {
+            for (int i = 0; i < N; i++) {
                 // Cần đặt thằng AptechBook bên trong vong for
                 // bởi vì mỗi lần khởi tạo khạo ko gian dữ liệu mới cho AptechBook
                 AptechBook book = new AptechBook(); 
@@ -105,19 +121,7 @@ namespace BaiTap_QuanLyBook
             });
             Display(aptechBooks);
         }
-        static void TimKiemByName(List<AptechBook> aptechBooks) {
 
-            Console.WriteLine("Nhap Ten sach can Tim: ");
-            string timtheoten = Console.ReadLine();
-
-            for (int i = 0; i < aptechBooks.Count; i++){
-
-                if (aptechBooks[i].Name.Equals(timtheoten)) { 
-                
-                    aptechBooks[i].HienThi();
-                }
-            }
-        }
         static void TimKiemByTacGia(List<AptechBook> aptechBooks) {
 
             Console.WriteLine("Nhap Ten Author can Tim: ");
